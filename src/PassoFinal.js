@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 export default class PassoFinal extends Component {
+    state = {
+        dados: []
+    }
+
     back = e => {
         e.preventDefault()
         this.props.prevStep();
@@ -8,7 +12,12 @@ export default class PassoFinal extends Component {
 
     salvar = e => {
         e.preventDefault()
-        console.log(JSON.stringify(this.props.values))
+
+        this.setState({
+            dados: [...this.state.dados, this.props.values]
+        })
+
+        console.log(JSON.stringify(this.state.dados))
     }
 
     render() {
