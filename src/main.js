@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import PrimeiroPasso from '../PrimeiroPasso'
-import SegundoPasso from '../SegundoPasso'
-import TerceiroPasso from '../TerceiroPasso'
-import QuartoPasso from '../QuartoPasso'
-import PassoFinal from '../PassoFinal'
+import PrimeiroPasso from './Passos/PrimeiroPasso'
+import SegundoPasso from './Passos/SegundoPasso'
+import TerceiroPasso from './Passos/TerceiroPasso'
+import QuartoPasso from './Passos/QuartoPasso'
+import PassoFinal from './Passos/PassoFinal'
 
 export default class Main extends Component {
 
@@ -32,43 +32,15 @@ export default class Main extends Component {
             codigoDaOcorrencia: '',
             local: '',
             bairro: '',
-
             nome: '',
-    
-            //step - 4
-            envolvido: {
-                nome: '',
-                condicaoDaParte: '',
-                conduzido: false,
-                dataNascimento: '',
-                pai: '',
-                mae: '',
-                nacionalidade: '',
-                naturalidadeCidade: '',
-                naturalidadeEstado: '',
-                telefone: '',
-                localDeTrabalho: '',
-                versaoDoEnvolvido: '',
-                rg: {
-                    numeroRg: '',
-                    orgaoExpedidor: '',
-                    estado: ''
-                },
-                endereco: {
-                    residencia: '',
-                    numero: '',
-                    bairro: '',
-                    cidade: '',
-                    estado: '',
-                    complemento: ''
-                }
-            },
-            
+
+            envolvido: [],
+  
             dados: []
     
         }
 
-    handleChange = input => e => {
+    handleChange = input => e =>{
         this.setState({
             [input]: e.target.value
         })
