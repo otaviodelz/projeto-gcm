@@ -5,12 +5,12 @@ export default class AdicionarVeiculo extends Component {
         super(props)
 
         this.state = {
-                placa: '',
-                modelo: '',
-                ano: '',
-                cor: '',
-                codRenavam: '',
-                dano: '',            
+            placa: '',
+            modelo: '',
+            ano: '',
+            cor: '',
+            codRenavam: '',
+            dano: '',
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -25,7 +25,7 @@ export default class AdicionarVeiculo extends Component {
 
     handleChange(e) {
         e.preventDefault();
-        const {name, value} = e.target
+        const { name, value } = e.target
 
         this.setState({
             [name]: value
@@ -34,8 +34,8 @@ export default class AdicionarVeiculo extends Component {
     }
 
     render() {
-        
-        return(
+
+        return (
             <div className="container">
                 <div className="divider"></div>
                 <div className="section">
@@ -43,12 +43,12 @@ export default class AdicionarVeiculo extends Component {
                         <div className="row">
                             <div className="input-field col s10 offset-s1">
                                 <input
-                                name='placa'
-                                id="placa"
-                                type="text"
-                                className="validate"
-                                onChange={this.handleChange}
-                                value={this.state.placa}
+                                    name='placa'
+                                    id="placa"
+                                    type="text"
+                                    className="validate"
+                                    onChange={this.handleChange}
+                                    value={this.state.placa}
                                 />
                                 <label htmlFor="natureza">Placa</label>
                             </div>
@@ -56,12 +56,12 @@ export default class AdicionarVeiculo extends Component {
                         <div className="row">
                             <div className="input-field col s10 offset-s1">
                                 <input
-                                name='modelo'
-                                id="modelo"
-                                type="text"
-                                className="validate"
-                                onChange={this.handleChange}
-                                value={this.state.modelo}
+                                    name='modelo'
+                                    id="modelo"
+                                    type="text"
+                                    className="validate"
+                                    onChange={this.handleChange}
+                                    value={this.state.modelo}
                                 />
                                 <label htmlFor="codigo">Modelo</label>
                             </div>
@@ -69,12 +69,12 @@ export default class AdicionarVeiculo extends Component {
                         <div className="row">
                             <div className="input-field col s10 offset-s1">
                                 <input
-                                name='ano'
-                                id="ano"
-                                type="number"
-                                className="validate"
-                                onChange={this.handleChange}
-                                value={this.state.ano}
+                                    name='ano'
+                                    id="ano"
+                                    type="number"
+                                    className="validate"
+                                    onChange={this.handleChange}
+                                    value={this.state.ano}
                                 />
                                 <label htmlFor="local">Ano</label>
                             </div>
@@ -82,12 +82,12 @@ export default class AdicionarVeiculo extends Component {
                         <div className="row">
                             <div className="input-field col s10 offset-s1">
                                 <input
-                                name='cor'
-                                id="cor"
-                                type="text"
-                                className="validate"
-                                onChange={this.handleChange}
-                                value={this.state.cor}
+                                    name='cor'
+                                    id="cor"
+                                    type="text"
+                                    className="validate"
+                                    onChange={this.handleChange}
+                                    value={this.state.cor}
                                 />
                                 <label htmlFor="local">Cor</label>
                             </div>
@@ -95,12 +95,12 @@ export default class AdicionarVeiculo extends Component {
                         <div className="row">
                             <div className="input-field col s10 offset-s1">
                                 <input
-                                name='codRenavam'
-                                id="codigoRenavam"
-                                type="number"
-                                className="validate"
-                                onChange={this.handleChange}
-                                value={this.state.codRenavam}
+                                    name='codRenavam'
+                                    id="codigoRenavam"
+                                    type="number"
+                                    className="validate"
+                                    onChange={this.handleChange}
+                                    value={this.state.codRenavam}
                                 />
                                 <label htmlFor="local">Código Renavam</label>
                             </div>
@@ -108,12 +108,12 @@ export default class AdicionarVeiculo extends Component {
                         <div className="row">
                             <div className="input-field col s10 offset-s1">
                                 <input
-                                name='dano'
-                                id="dano"
-                                type="text"
-                                className="validate"
-                                onChange={this.handleChange}
-                                value={this.state.dano}
+                                    name='dano'
+                                    id="dano"
+                                    type="text"
+                                    className="validate"
+                                    onChange={this.handleChange}
+                                    value={this.state.dano}
                                 />
                                 <label htmlFor="local">Dano</label>
                             </div>

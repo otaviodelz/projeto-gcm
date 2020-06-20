@@ -1,29 +1,49 @@
 import React, { Component } from 'react'
+import { add, get } from '../services/ocorrencia'
+
 
 export default class PassoFinal extends Component {
-    state = {
-        dados: []
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            dados: [],
+            ocorrencia: {},
+            dadosRender: []
+        }
+
+        this.testeGet = this.testeGet.bind(this)
+
     }
+
 
     back = e => {
         e.preventDefault()
         this.props.prevStep();
     }
 
-    salvar = e => {
-        e.preventDefault()
+    salvar = () => {
+        add(this.props.values)
+    }
 
-        this.setState({
-            dados: [...this.state.dados, this.props.values]
+    testeGet() {
+
+        get((ocorrencia) => {
+
+            this.setState({
+                ocorrencia: ocorrencia
+            })
         })
 
-        console.log(JSON.stringify(this.state.dados))
+        console.log(this.state.ocorrencia)
+
     }
 
     render() {
+
         const { values } = this.props;
 
-        return(
+        return (
             <div>
                 <h3>Ocorrência: {values.numeroDaOcorrencia}</h3>
                 <p><strong>Data: </strong>{values.data}</p>
@@ -43,11 +63,11 @@ export default class PassoFinal extends Component {
                 <p><strong>Local: </strong>{values.local}</p>
                 <p><strong>Bairro: </strong>{values.bairro}</p>
                 <h3>Envolvidos: </h3>
-                {values.envolvidos.map(function(e, index) {
-                    return(
+                {values.envolvidos.map(function (e, index) {
+                    return (
                         <div key={e.id}>
                             <h3>Envolvido {index + 1}: {e.nome}</h3>
-                            <p><strong>Condição da Parte: </strong>{e.condicaoDaParte}</p> 
+                            <p><strong>Condição da Parte: </strong>{e.condicaoDaParte}</p>
                             <p><strong>Conduzido: </strong>{e.conduzido}</p>
                             <p><strong>Data Nascimento: </strong>{e.dataNascimento}</p>
                             <p><strong>Residencia: </strong>{e.endereco.residencia}</p>
@@ -70,11 +90,11 @@ export default class PassoFinal extends Component {
                     )
                 })}
                 <h3>Veiculos: </h3>
-                {values.veiculos.map(function(v, index) {
-                    return(
+                {values.veiculos.map(function (v, index) {
+                    return (
                         <div key={v.id}>
                             <h3>Veículo {index + 1}</h3>
-                            <p><strong>Placa: </strong>{v.placa}</p> 
+                            <p><strong>Placa: </strong>{v.placa}</p>
                             <p><strong>Modelo: </strong>{v.modelo}</p>
                             <p><strong>Ano: </strong>{v.ano}</p>
                             <p><strong>Cor: </strong>{v.cor}</p>
@@ -83,7 +103,11 @@ export default class PassoFinal extends Component {
                         </div>
                     )
                 })}
-                <br/>
+                <h1>{this.state.ocorrencia.numeroDaOcorrencia}</h1>
+                <br />
+                <button onClick={this.testeGet}>
+                    Get
+                </button>
                 <button onClick={this.salvar}>
                     Concluir
                 </button>
